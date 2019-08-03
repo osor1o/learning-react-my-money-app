@@ -7,7 +7,7 @@ import BillingCycle from '../billingCycle/billingCycle'
 export default props => (
     <HashRouter>
         <Switch>
-            <Route path='/' exact={true} component={Dashboard} />
+            <Route path='/' exact={true} component={Dashboard} title='HomePagexx' />
             <Route path='/billingCycles' exact={true} component={BillingCycle} />
             <Redirect path='*' to='/' />
         </Switch>
