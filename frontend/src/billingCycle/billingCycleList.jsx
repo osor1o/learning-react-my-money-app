@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { getList } from './billingCycleActions'
 
 class BillingCycleList extends Component {
-
     componentWillMount() {
         this.props.getList()
     }
@@ -39,7 +38,6 @@ class BillingCycleList extends Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => ({ list: state.billingCycle.list })
