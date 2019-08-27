@@ -8,10 +8,10 @@ const INITIAL_VALUES = {}
 
 export function getList() {
     const request = axios.get(`${BASE_URL}`)    
-    return {
-        type: 'BILLING_CYCLES_FETCHED',
-        payload: request
-    }
+    return [
+        { type: 'BILLING_CYCLES_FETCHED', payload: request },
+        initialize('billingCycleForm', INITIAL_VALUES)
+    ]
 }
 
 export function create(values) {
@@ -60,7 +60,6 @@ export function init() {
     return [
         showTabs('tabList', 'tabCreate'),
         selectTab('tabList'),
-        getList(),
-        initialize('billingCycleForm', INITIAL_VALUES)
+        getList()
     ]
 }
