@@ -1,5 +1,4 @@
 import React from 'react'
-import "../common/template/dependencies"
 
 import './App.css'
 

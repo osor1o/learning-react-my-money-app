@@ -21,38 +21,37 @@ class ItemList extends Component {
     }
 
     renderRows() {
-        let list = this.props.list || []
-        if (list.length === 0 && !this.props.readOnly) list = [{}]
+        const list = this.props.list || []
         return list.map((item, index) => (
-            <tr key={index}>
-                <td>
-                    <Field name={`${this.props.field}[${index}].name`}component={Input}
-                    placeholder='Informe o nome' readOnly={this.props.readOnly} />
-                </td>
-                <td>
-                    <Field name={`${this.props.field}[${index}].value`} component={Input} 
-                    placeholder='Informe o valor' readOnly={this.props.readOnly} />
-                </td>
-                <If test={this.props.showStatus}>
+                <tr key={index}>
                     <td>
-                        <Field name={`${this.props.field}[${index}].status`} component={Input} 
-                        placeholder='Informe o status' readOnly={this.props.readOnly} />
+                        <Field name={`${this.props.field}[${index}].name`}component={Input}
+                        placeholder='Informe o nome' readOnly={this.props.readOnly} />
                     </td>
-                </If>
-                <If test={!this.props.readOnly}>
                     <td>
-                        <button type='button' className='btn btn-success' onClick={() => this.add(index + 1)}>
-                            <i className='fa fa-plus' />
-                        </button>
-                        <button type='button' className='btn btn-warning' onClick={() => this.add(index + 1, item)}>
-                            <i className='fa fa-clone' />
-                        </button>
-                        <button type='button' className='btn btn-danger' onClick={() => this.remove(index)}>
-                            <i className='fa fa-trash-o' />
-                        </button>
+                        <Field name={`${this.props.field}[${index}].value`} component={Input} 
+                        placeholder='Informe o valor' readOnly={this.props.readOnly} />
                     </td>
-                </If>
-            </tr>
+                    <If test={this.props.showStatus}>
+                        <td>
+                            <Field name={`${this.props.field}[${index}].status`} component={Input} 
+                            placeholder='Informe o status' readOnly={this.props.readOnly} />
+                        </td>
+                    </If>
+                    <If test={!this.props.readOnly}>
+                        <td>
+                            <button type='button' className='btn btn-success' onClick={() => this.add(index + 1)}>
+                                <i className='fa fa-plus' />
+                            </button>
+                            <button type='button' className='btn btn-warning' onClick={() => this.add(index + 1, item)}>
+                                <i className='fa fa-clone' />
+                            </button>
+                            <button type='button' className='btn btn-danger' onClick={() => this.remove(index)}>
+                                <i className='fa fa-trash-o' />
+                            </button>
+                        </td>
+                    </If>
+                </tr>
         ))
     }
 

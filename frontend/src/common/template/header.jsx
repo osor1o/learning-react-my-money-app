@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from './navbar'
 
 export default props => (
     <header className="main-header">
@@ -13,8 +14,9 @@ export default props => (
             <button 
                 className="sidebar-toggle"
                 data-toggle="offcanvas"
-                style={{ border: "none", outline: "none" }}
+                style={{ border: "none", outline: "none", margin: "0" }}
             ></button>
+            <Navbar />
         </nav>
     </header>
 )
