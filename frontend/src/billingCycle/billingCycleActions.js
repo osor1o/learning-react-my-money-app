@@ -41,7 +41,7 @@ export function showUpdate(billingCycle) {
     return [
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
-        initialize('billingCycleForm', emptyCreditsOrDebits(billingCycle))
+        initialize('billingCycleForm', billingCycle)
     ]
 }
 
@@ -49,16 +49,8 @@ export function showDelete(billingCycle) {
     return [
         showTabs('tabDelete'),
         selectTab('tabDelete'),
-        initialize('billingCycleForm', emptyCreditsOrDebits(billingCycle))
+        initialize('billingCycleForm', billingCycle)
     ]
-}
-
-function emptyCreditsOrDebits(billingCycle) {
-    if (billingCycle.credits.length === 0)
-        billingCycle.credits = [{}]
-    if (billingCycle.debts.length === 0)
-        billingCycle.debts = [{}]
-    return billingCycle
 }
 
 export function init() {
